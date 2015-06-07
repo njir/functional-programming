@@ -13,12 +13,4 @@ object MyModule {
     go(n, 1)
   }
 
-  def fib(n: Int) : Int = {
-    @annotation.tailrec
-    def go(n: Int, acc: Int) : Int = {
-      val next = n + acc
-      if()
-      else go(acc, next)
-    }
-  }
 }
