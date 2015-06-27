@@ -28,8 +28,9 @@ object Vaian {
     else scala.Some(xs.sum / xs.length)
   }
   def variance(xs: Seq[Double]): scala.Option[Double] = {
-    mean(xs).flatMap(m => mean(xs.map(x => math.pow(x - m , 2))))
+    mean(xs).flatMap(m => mean(xs.map(x => math.pow(x - m, 2))))
   }
-  
-
 }
+
+
+
