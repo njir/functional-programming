@@ -13,9 +13,16 @@ class StreamSpec extends FunSuite with Matchers{
 
   test("map"){
     val s = cons(1, cons(2, Empty))
-    val s2 = cons(3, cons(4, Empty))
 
     s.map(_ + 2).forAll(_ >= 3) should be (true)
+  }
+
+  test("take, drop"){
+    val s = cons(3, cons(4, cons(5, Empty)))
+    s.take(2).forAll(_ < 5) shouldBe true
+
+
+
   }
 
 }
