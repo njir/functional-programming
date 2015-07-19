@@ -25,6 +25,12 @@ case class SimpleRNG(seed: Long) extends RNG {
       (f(a), rng2)
     }
 
+  def flatMap[A, B](f: Rand[A])(g: A => Rand[B]): Rand[B] =
+   rng => {
+     val (a, rngA) = f(rng)
+     g(a)(rngA) // RAND[B] = rng => (B, rng)
+  }
+
   def nonNegativeInt(rng: RNG): (Int, RNG) = {
     val (n, rng1) = rng.nextInt
     (if(n < 0) -n else n, rng1)
